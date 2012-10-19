@@ -10,7 +10,6 @@ function put( m ) {
 
 
 
-
 // TASK 5 ->
 function fact( n ) {
   if( n === 0 ) {
@@ -39,7 +38,6 @@ function max( x, y ) {
 put( max(1,2) ) // -> 2
 put( max(10,20) ) // -> 20
 // <- TASK 5
-
 
 
 
@@ -109,6 +107,7 @@ put( position(List(true, true, false, true), false) )   // -> 3
 // <- TASK 7
 
 
+
 function loop( list, fn ) {
   var head, tail
   head = list.head()
@@ -118,6 +117,8 @@ function loop( list, fn ) {
     loop( tail, fn )
   }
 }
+
+
 
 // TASK 8 ->
 var keywords, operators
