@@ -1,0 +1,9 @@
+{
+  "name": "functional",
+  "version": "0.0.0",
+  "main": "List.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "BSD"
+}
