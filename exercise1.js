@@ -1,5 +1,5 @@
 
-var List = require( './List' ),
+var List = require( './lib/List' ),
     util = require( 'util' )
     // codein = require("node-codein");
 

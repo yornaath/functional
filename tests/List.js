@@ -1,6 +1,6 @@
 
 var expect = require( "expect.js" ),
-    List = require( "../List.js" )
+    List = require( "../lib/List.js" )
 
 describe("List", function() {
 
