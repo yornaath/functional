@@ -1,7 +1,15 @@
 
 var List = require( './lib/List' ),
-    util = require( 'util' )
-    // codein = require("node-codein");
+    len = List.len,
+    take = List.take,
+    drop = List.drop,
+    member = List.member,
+    position = List.position,
+    loop = List.loop,
+    append = List.append,
+    concat = List.concat
+
+
 
 function put( m ) {
   console.log.apply(console, arguments)
@@ -9,14 +17,9 @@ function put( m ) {
 
 
 
-
 // TASK 5 ->
 function fact( n ) {
-  if( n === 0 ) {
-    return 1
-  } else {
-    return n * fact( n - 1 )
-  }
+  return n === 0 ? 1 : n * fact( n-1 )
 }
 
 put( fact(5) ) // -> 120
@@ -42,81 +45,25 @@ put( max(10,20) ) // -> 20
 
 
 
-
-
 //TASK 7
-function length( list ) {
-  return 0 + ( list.head() !== null ? 1 + length(list.tail()) : 0 )
-}
-
-put( length(new List(1, 2, 3)) ) // -> 3
-put( length(new List(1, 'b', 3, false)) ) // -> 4
-
-
-function concat( lista, listb ) {
-  return List([].concat(
-    List.isList(lista) ? lista.data : lista,
-    List.isList(listb) ? listb.data : listb
-  ))
-}
-
-function take( list, n ) {
-  return n > length( list ) ? list :
-         n > 0 ? List( concat(list.head(), take(list.tail(), n-1)) ) :
-         List()
-}
+put( len(new List(1, 2, 3)) ) // -> 3
+put( len(new List(1, 'b', 3, false)) ) // -> 4
 
 put( take(List(1,2,3,4,5), 2) )  // -> [1,2]
 put( take(List(1,2,3,4,5), 4) )  // -> [1,2,3,4]
 put( take(List(1,2,3,4,5), 10) ) // -> [1,2,3,4,5]
 
-
-function drop( list, n ) {
-  return n > length( list ) ? null :
-         n > 0 ? drop( list.tail(), n-1 ) :
-         list
-}
-
 put( drop(List(1,2,3,4,5), 3)) // -> [3,4,5]
-
-
-function append( lista, listb ) {
-  return concat( lista, listb )
-}
-
-function member( list, cand ) {
-  return list.head() === null ? false :
-         list.head() === cand ? true :
-         member( list.tail(), cand )
-}
 
 put( member(List(1,2,3), 2) )         // -> true
 put( member(List(1,2,3), 5) )         // -> false
 put( member(List(1,'a',3), 'a') )     // -> true
-
-
-function position( list, cand ) {
-  return 0 + ( list.head() === cand ? 1 :
-               list.head() === null ? 0 :
-               position(list.tail(), cand) + 1 )
-}
 
 put( position(List(4,5,6,7,8), 7) )                     // -> 4
 put( position(List('a','b','c'), 'c') )                 // -> 3
 put( position(List(true, true, false, true), false) )   // -> 3
 // <- TASK 7
 
-
-
-function loop( list, fn ) {
-  var head, tail
-  head = list.head()
-  tail = list.tail()
-  if( head !== null ) {
-    fn( head )
-    loop( tail, fn )
-  }
-}
 
 
 
